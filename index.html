@@ -2,19 +2,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Book Library Project</title>
 </head>
 <body>
     <h1>Library</h1>
-    <form>
+   <section>
+    <form id="form">
         <label for="author">Author:</label><br>
         <input type="text" id="author" name="author"><br>
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title"><br>
         <label for="pages">Number of Pages:</label><br>
         <input type="text" id="pages" name="pages">
+
+        <input type="submit" value="submit">
       </form>
+   </section>
+
+   <section>
+       <ul id="books"></ul>
+   </section>
 
     <script src="index.js"></script>
+    <script src="https://kit.fontawesome.com/7940b5dc55.js" crossorigin="anonymous"></script>
 </body>
 </html>
