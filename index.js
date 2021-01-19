@@ -1,37 +1,6 @@
 const booksList = document.querySelector('#books')
 
-class Store {
-  static getBooks() {
-    let books;
-    if(localStorage.getItem('books') === null) {
-      books = [];
-    } else {
-      books = JSON.parse(localStorage.getItem('books'));
-    }
-
-    return books;
-  }
-
-  static addBook(book) {
-    const books = Store.getBooks();
-    books.push(book);
-    localStorage.setItem('books', JSON.stringify(books));
-  }
-
-  static removeBook(pages) {
-    const books = Store.getBooks();
-
-    books.forEach((book, index) => {
-      if(book.pages === pages) {
-        books.splice(index, 1);
-      }
-    });
-
-    localStorage.setItem('books', JSON.stringify(books));
-  }
-}
-
-let myLibrary = Store.getBooks;
+let myLibrary = [];
 
 function Book(author, title, pages ) {
   this.author = author
@@ -75,14 +44,29 @@ function addBook(e){
 
     //console.log(booksList)
 
-    myLibrary.push(book)
+    myLibrary.push([author.value, title.value, pages.value])
 
     clearField()
 }
 
 
 
+function loadEventListeners() {
+  document.querySelector('#form').addEventListener('submit', addBook)
+  booksList.addEventListener('click', removeBook);
+  
+}
 
-document.querySelector('#form').addEventListener('submit', addBook)
 
+function removeBook(e) {
+  if(e.target.parentElement.classList.contains('delete-book')) {
+    if(confirm('Are You Sure?')) {
+      e.target.parentElement.parentElement.remove();
+
+    }
+  }
+}
+
+
+loadEventListeners();
 
