@@ -24,10 +24,20 @@ function addBook(e){
     
     
     // creating list of books
-    const li = document.createElement('li')
-    li.className = 'book-list';
+    //const li = document.createElement('li')
+    //li.className = 'book-list';
 
-    li.appendChild(document.createTextNode([author.value, title.value, pages.value]))
+    //li.appendChild(document.createTextNode([author.value, title.value, pages.value]))
+
+    const div = document.createElement('div');
+
+    div.innerHTML = `
+
+    <h5 class="card-title mb-0"> ${book.title} </h5>
+    <p class="card-text">Author: <span id="author">${book.author}</span></p>
+    <p class="card-text">Pages: <span id="pages">${book.pages}</span></p>
+ `;
+
 
 
     // delete icon
@@ -36,17 +46,19 @@ function addBook(e){
     link.innerHTML = '<i class="fas fa-trash-alt delete"></i>'
     
     // add delete icon to li
-    li.appendChild(link)
+    booksList.appendChild(link)
+    booksList.appendChild(div)
 
 
     // add li to the ul
-    booksList.appendChild(li)
+    //booksList.appendChild(li)
 
     //console.log(booksList)
 
     myLibrary.push([author.value, title.value, pages.value])
 
     clearField()
+  
 }
 
 
