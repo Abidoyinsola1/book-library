@@ -1,5 +1,37 @@
 const booksList = document.querySelector('#books')
-let myLibrary = [];
+
+class Store {
+  static getBooks() {
+    let books;
+    if(localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+
+    return books;
+  }
+
+  static addBook(book) {
+    const books = Store.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static removeBook(pages) {
+    const books = Store.getBooks();
+
+    books.forEach((book, index) => {
+      if(book.pages === pages) {
+        books.splice(index, 1);
+      }
+    });
+
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+}
+
+let myLibrary = Store.getBooks;
 
 function Book(author, title, pages ) {
   this.author = author
@@ -26,7 +58,7 @@ function addBook(e){
     const li = document.createElement('li')
     li.className = 'book-list';
 
-    li.appendChild(document.createTextNode(author.value, title.value, pages.value))
+    li.appendChild(document.createTextNode([author.value, title.value, pages.value]))
 
 
     // delete icon
