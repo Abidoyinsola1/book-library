@@ -44,7 +44,7 @@ function addBook(e) {
 
 function removeBook(e) {
   if (e.target.parentElement.classList.contains('delete-book')) {
-    if (confirm('Are You Sure?')) {
+    if (window.confirm('Are You Sure?')) {
       e.target.parentElement.parentElement.remove();
     }
   }
