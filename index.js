@@ -1,16 +1,6 @@
-let booksShow = document.getElementById('books');
-let fileButton = document.getElementById('submit');
+const booksList = document.querySelector('#books');
 
-fileButton.addEventListener('change', function(e) {
-  let file = e.target.files[0];
-
-  let storageRef = firebase.storage().ref('book-pile/' + file.name);
-  storageRef.put(file);
-});
-
-const booksList = document.querySelector("#books");
-
-let myLibrary = [];
+const myLibrary = [];
 
 function Book(author, title, pages) {
   this.author = author;
@@ -19,9 +9,9 @@ function Book(author, title, pages) {
 }
 
 function clearField() {
-  document.querySelector("#title").value = "";
-  document.querySelector("#author").value = "";
-  document.querySelector("#pages").value = "";
+  document.querySelector('#title').value = '';
+  document.querySelector('#author').value = '';
+  document.querySelector('#pages').value = '';
 }
 
 function addBook(e) {
@@ -30,7 +20,7 @@ function addBook(e) {
   const [title, author, pages] = e.target.elements;
   const book = new Book(author.value, title.value, pages.value);
 
-  const div = document.createElement("div");
+  const div = document.createElement('div');
 
   div.innerHTML = `
 
@@ -44,34 +34,25 @@ function addBook(e) {
   </label>
  `;
 
- 
-  // delete icon
-  //const link = document.createElement("a");
-  //link.className = "delete-book";
-  //link.innerHTML = '<i class="fas fa-trash-alt delete"></i>';
-
-  // add delete icon to li
-  //booksList.appendChild(link);
   booksList.appendChild(div);
-  console.log(div)
 
   myLibrary.push([author.value, title.value, pages.value]);
 
   clearField();
 }
 
-function loadEventListeners() {
-  document.querySelector("#form").addEventListener("submit", addBook);
-  booksList.addEventListener("click", removeBook);
-}
 
 function removeBook(e) {
-  if (e.target.parentElement.classList.contains("delete-book")) {
-    if (confirm("Are You Sure?")) {
+  if (e.target.parentElement.classList.contains('delete-book')) {
+    if (confirm('Are You Sure?')) {
       e.target.parentElement.parentElement.remove();
     }
   }
 }
 
+function loadEventListeners() {
+  document.querySelector('#form').addEventListener('submit', addBook);
+  booksList.addEventListener('click', removeBook);
+}
 
 loadEventListeners();
