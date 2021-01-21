@@ -1,12 +1,12 @@
-var firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://PROJECT_ID.firebaseio.com",
-  projectId: "PROJECT_ID",
-  storageBucket: "PROJECT_ID.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID",
-};
+let booksShow = document.getElementById('books');
+let fileButton = document.getElementById('submit');
+
+fileButton.addEventListener('change', function(e) {
+  let file = e.target.files[0];
+
+  let storageRef = firebase.storage().ref('book-pile/' + file.name);
+  storageRef.put(file);
+});
 
 const booksList = document.querySelector("#books");
 
@@ -54,7 +54,6 @@ function addBook(e) {
   //booksList.appendChild(link);
   booksList.appendChild(div);
   console.log(div)
-
 
   myLibrary.push([author.value, title.value, pages.value]);
 
