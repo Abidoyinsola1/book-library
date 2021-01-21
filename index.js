@@ -23,26 +23,24 @@ function addBook(e) {
   const div = document.createElement("div");
 
   div.innerHTML = `
-<div class="row">
-<div class="col-md-3">
+
     <h5 class="card-title mb-0"> ${book.title} </h5>
     <p class="card-text">Author: <span id="author">${book.author}</span></p>
-    <p class="card-text">Pages: <span id="pages">${book.pages}</span></p></div></div>
+    <p class="card-text">Pages: <span id="pages">${book.pages}</span></p>
+    <a class="delete-book" ><i class="fas fa-trash-alt delete"></i></a>
  `;
 
+ 
   // delete icon
-  const link = document.createElement("a");
-  link.className = "delete-book";
-  link.innerHTML = '<i class="fas fa-trash-alt delete"></i>';
+  //const link = document.createElement("a");
+  //link.className = "delete-book";
+  //link.innerHTML = '<i class="fas fa-trash-alt delete"></i>';
 
   // add delete icon to li
-  booksList.appendChild(link);
+  //booksList.appendChild(link);
   booksList.appendChild(div);
+  console.log(div)
 
-  // add li to the ul
-  //booksList.appendChild(li)
-
-  //console.log(booksList)
 
   myLibrary.push([author.value, title.value, pages.value]);
 
@@ -61,5 +59,6 @@ function removeBook(e) {
     }
   }
 }
+
 
 loadEventListeners();
