@@ -2,10 +2,6 @@ ul {
   list-style: none;
 }
 
-ul {
-  list-style: none;
-}
-
 .switch {
   position: relative;
   display: inline-block;
@@ -64,4 +60,9 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
