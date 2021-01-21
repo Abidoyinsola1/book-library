@@ -28,6 +28,10 @@ function addBook(e) {
     <p class="card-text">Author: <span id="author">${book.author}</span></p>
     <p class="card-text">Pages: <span id="pages">${book.pages}</span></p>
     <a class="delete-book" ><i class="fas fa-trash-alt delete"></i></a>
+    <label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
  `;
 
  
