@@ -1,4 +1,5 @@
 # Book Library 
+
 Building a book library using HTML and Javascript
 
 ![screenshot](./assets/screenshot.png)
@@ -10,6 +11,12 @@ Building a book library using HTML and Javascript
 - Bootstrap
 - JavaScript
 
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+- Clone the repository on your local machine
+- cd into the folder
 
 ## Authors
 
