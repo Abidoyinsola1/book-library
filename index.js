@@ -57,4 +57,22 @@ function loadEventListeners() {
   booksList.addEventListener('click', removeBook);
 }
 
+
+let a;
+
+function hideShow(){
+  if(a==1){
+     document.getElementById('author').style.display='block'
+     document.getElementById('title').style.display='block'
+     document.getElementById('pages').style.display='block'
+     return a=0;
+  }
+  else{
+    document.getElementById('author').style.display='none'
+    document.getElementById('title').style.display='none'
+    document.getElementById('pages').style.display='none'
+    return a=1
+  }
+}
+
 loadEventListeners();
