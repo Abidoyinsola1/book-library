@@ -4,6 +4,8 @@ Building a book library using HTML and Javascript
 
 ![screenshot](./assets/screenshot.png)
 
+[Live Demo](https://raw.githack.com/Abidoyinsola1/book-library/feature-branch/index.html)
+
 
 ## Built With
 
@@ -15,8 +17,10 @@ Building a book library using HTML and Javascript
 
 To get a local copy up and running follow these simple example steps.
 
-- Clone the repository on your local machine
+- clone the repository on your local machine
 - cd into the folder
+- open the cloned folder in your code editor
+- preview in a browser, preferrably Chrome or Firefox
 
 ## Authors
 
